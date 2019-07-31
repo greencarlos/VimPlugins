@@ -413,17 +413,17 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 
 " Auto-complete and auto format parenthesis, curly braces, and square
 " brackets
-inoremap {      {  }<Left><Left>
+inoremap {      {}<Left><Left>
 inoremap {<CR>  {<CR>}<Esc>O<Tab>
 inoremap {}     {}
 inoremap {{     {{
 
-inoremap (      (  )<Left><Left>
+inoremap (      ()<Left><Left>
 inoremap (<CR>  (<CR>)<Esc>O<Tab>
 inoremap ()     ()
 inoremap ((     ((
 
-inoremap [      [  ]<Left><Left>
+inoremap [      []<Left><Left>
 inoremap [<CR>  [<CR>]<Esc>O<Tab>
 inoremap []     []
 inoremap [[     [[
