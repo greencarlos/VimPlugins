@@ -103,3 +103,8 @@ inoremap [      []<Left><Left>
 inoremap [<CR>  [<CR>]<Esc>O<Tab>
 inoremap []     []
 inoremap [[     [[
+
+" TypeScript Syntax
+let g:typescript_indent_disable = 1
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
