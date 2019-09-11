@@ -108,3 +108,27 @@ inoremap [[     [[
 let g:typescript_indent_disable = 1
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
+
+" https://github.com/junegunn/vim-plug
+"" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'prettier/vim-prettier', {
+    \ 'do': 'npm install',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+" https://github.com/scrooloose/nerdtree
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" Initialize plugin system
+call plug#end()
+
+map <C-n> :NERDTreeToggle<CR>
+
+" Prettier
+" `f` for "format"
+nmap <leader>f <Plug>(Prettier)
+let g:prettier#exec_cmd_async = 1
