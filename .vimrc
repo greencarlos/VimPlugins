@@ -104,11 +104,6 @@ inoremap [<CR>  [<CR>]<Esc>O<Tab>
 inoremap []     []
 inoremap [[     [[
 
-" TypeScript Syntax
-let g:typescript_indent_disable = 1
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
-
 " https://github.com/junegunn/vim-plug
 "" Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
