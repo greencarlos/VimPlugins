@@ -1,7 +1,7 @@
 syntax on
 set number
 set autoindent
-set tabstop=2
+set tabstop=1
 colorscheme default
 
 set nocompatible              " be iMproved, required
