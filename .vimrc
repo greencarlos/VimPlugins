@@ -118,6 +118,9 @@ Plug 'prettier/vim-prettier', {
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+" conquer of completion vim 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Initialize plugin system
 call plug#end()
 
