@@ -1,17 +1,15 @@
-syntax on
-set number
-set autoindent
-set tabstop=1
-colorscheme default
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set number
+set autoindent
+colorscheme default
 
 " first clear any existing autocommands:
 autocmd!
 
 " have fifty lines of command-line (etc) history:
 set history=50
+
 
 " display the current mode and partially-typed commands in the status line:
 set showmode
@@ -43,7 +41,6 @@ autocmd FileType html set formatoptions+=tl
 " files a few bytes smaller:
 autocmd FileType html,css set noexpandtab tabstop=2
 
-syntax on
 
 set nocompatible                  " Must come first because it changes other options.
 
@@ -104,29 +101,57 @@ inoremap [<CR>  [<CR>]<Esc>O<Tab>
 inoremap []     []
 inoremap [[     [[
 
-" https://github.com/junegunn/vim-plug
-"" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
 
-Plug 'prettier/vim-prettier', {
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+Plugin 'prettier/vim-prettier', {
     \ 'do': 'npm install',
     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " https://github.com/scrooloose/nerdtree
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" conquer of completion vim 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Initialize plugin system
-call plug#end()
-
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 map <C-n> :NERDTreeToggle<CR>
 
 " Prettier
 " `f` for "format"
 nmap <leader>f <Plug>(Prettier)
 let g:prettier#exec_cmd_async = 1
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+
+" Put your non-Plugin stuff after this line
