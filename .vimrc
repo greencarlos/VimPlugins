@@ -7,8 +7,7 @@ colorscheme default
 " first clear any existing autocommands:
 autocmd!
 
-" have fifty lines of command-line (etc) history:
-set history=50
+" have fifty lines of command-line (etc) history: set history=50
 
 
 " display the current mode and partially-typed commands in the status line:
@@ -127,12 +126,16 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'prettier/vim-prettier', {
     \ 'do': 'npm install',
-    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+    \ 'for': ['javascript', 'html', 'css', 'react', 'express', 'json' ] }
 
 " https://github.com/scrooloose/nerdtree
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plugin 'Chiel92/vim-autoformat'
+let g:python3_host_prog=/path/to/python/executable/
 
+Plugin 'ycm-core/YouCompleteMe'
+let g:ycm_use_clangd = 0
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
