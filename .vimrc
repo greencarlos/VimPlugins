@@ -1,14 +1,12 @@
-set nocompatible              " be iMproved, required
 filetype off                  " required
 set number
 set autoindent
-colorscheme default
+colorscheme default 
 
 " first clear any existing autocommands:
 autocmd!
 
 " have fifty lines of command-line (etc) history: set history=50
-
 
 " display the current mode and partially-typed commands in the status line:
 set showmode
@@ -100,7 +98,6 @@ inoremap [<CR>  [<CR>]<Esc>O<Tab>
 inoremap []     []
 inoremap [[     [[
 
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -126,18 +123,42 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'prettier/vim-prettier', {
     \ 'do': 'npm install',
-    \ 'for': ['javascript', 'html', 'css', 'react', 'express', 'json' ] }
+    \ 'for': ['javascript', 'html', 'css', 'react', 'express', 'json', 'typescript' ] }
 
 " https://github.com/scrooloose/nerdtree
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+let g:python3_host_prog = '/path/to/python/executable/'
 Plugin 'Chiel92/vim-autoformat'
-let g:python3_host_prog=/path/to/python/executable/
 
 Plugin 'ycm-core/YouCompleteMe'
 let g:ycm_use_clangd = 0
 
-" All of your Plugins must be added before the following line
+" TypeScript syntax highlighting
+Plugin 'HerringtonDarkholme/yats.vim' 
+
+" Get integration for NerdTree
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+
+
+" All of your Plugins must be added 
+" before the following line vundle#end()
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -148,7 +169,15 @@ map <C-n> :NERDTreeToggle<CR>
 " `f` for "format"
 nmap <leader>f <Plug>(Prettier)
 let g:prettier#exec_cmd_async = 1
-"
+
+" JSX syntax highlighting
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+let g:xml_syntax_folding = 1
+let g:jsx_ext_required= 1
+
+
+
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
