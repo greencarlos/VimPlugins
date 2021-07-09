@@ -121,9 +121,15 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
+" post install (yarn install | npm install) then load plugin only for editing supported files
+" cd ~/.vim/bundle/vim-prettier and run 'yarn'
+
 Plugin 'prettier/vim-prettier', {
-    \ 'do': 'npm install',
-    \ 'for': ['javascript', 'html', 'css', 'react', 'express', 'json', 'typescript' ] }
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#exec_cmd_path = "~/path/to/cli/prettier"
 
 " https://github.com/scrooloose/nerdtree
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
@@ -171,10 +177,30 @@ nmap <leader>f <Plug>(Prettier)
 let g:prettier#exec_cmd_async = 1
 
 " JSX syntax highlighting
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-let g:xml_syntax_folding = 1
-let g:jsx_ext_required= 1
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+
+" dark red
+hi tsxTagName guifg=#E06C75
+hi tsxComponentName guifg=#E06C75
+hi tsxCloseComponentName guifg=#E06C75
+
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+
+" light-grey
+hi tsxTypeBraces guifg=#999999
+" dark-grey
+hi tsxTypes guifg=#666666
+
+
 
 
 
