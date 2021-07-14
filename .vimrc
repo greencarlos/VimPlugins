@@ -200,10 +200,6 @@ hi tsxTypeBraces guifg=#999999
 " dark-grey
 hi tsxTypes guifg=#666666
 
-
-
-
-
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
