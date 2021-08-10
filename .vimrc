@@ -2,6 +2,8 @@ filetype off                  " required
 set number
 set autoindent
 colorscheme default 
+let g:quantum_italics=1
+
 
 " first clear any existing autocommands:
 autocmd!
@@ -141,9 +143,6 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'ycm-core/YouCompleteMe'
 let g:ycm_use_clangd = 0
 
-" TypeScript syntax highlighting
-Plugin 'HerringtonDarkholme/yats.vim' 
-
 " Get integration for NerdTree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -161,10 +160,21 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ }
 
 
+Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'pangloss/vim-javascript'
+" TypeScript syntax highlighting
+Plugin 'HerringtonDarkholme/yats.vim'
+" or Plug 'leafgarland/typescript-vim'
+Plugin 'maxmellon/vim-jsx-pretty'
+
+let g:javascript_plugin_jsdoc = 1
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+
+
+
 
 " All of your Plugins must be added 
 " before the following line vundle#end()
-
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -175,10 +185,6 @@ map <C-n> :NERDTreeToggle<CR>
 " `f` for "format"
 nmap <leader>f <Plug>(Prettier)
 let g:prettier#exec_cmd_async = 1
-
-" JSX syntax highlighting
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
 
 " dark red
 hi tsxTagName guifg=#E06C75
