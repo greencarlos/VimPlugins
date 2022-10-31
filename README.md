@@ -1,7 +1,7 @@
 # VimPlugins
 
 Vundle
-https://github.com/songz/songVimPlugins/blob/master/vimrc
+https://github.com/VundleVim/Vundle.vim
 
 zsh: https://github.com/robbyrussell/oh-my-zsh
 
