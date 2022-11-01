@@ -135,7 +135,7 @@ let g:prettier#exec_cmd_path = "~/path/to/cli/prettier"
 
 " https://github.com/scrooloose/nerdtree
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
-Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plugin 'preservim/nerdtree'
 
 let g:python3_host_prog = '/path/to/python/executable/'
 Plugin 'Chiel92/vim-autoformat'
