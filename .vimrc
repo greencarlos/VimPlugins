@@ -1,9 +1,8 @@
 filetype off                  " required
 set number
 set autoindent
-colorscheme default 
+set background=dark
 let g:quantum_italics=1
-
 
 " first clear any existing autocommands:
 autocmd!
@@ -19,6 +18,10 @@ set nomodeline
 
 " don't make it look like there are line breaks where there aren't:
 set nowrap
+
+" Prettier
+" https://github.com/prettier/vim-prettier
+packloadall
 
 " use indents of 2 spaces, and have them copied down lines:
 set shiftwidth=2
@@ -106,6 +109,8 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+Plugin 'fcpg/vim-orbital'
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -135,7 +140,7 @@ let g:prettier#exec_cmd_path = "~/path/to/cli/prettier"
 
 " https://github.com/scrooloose/nerdtree
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
-" Plugin 'preservim/nerdtree'
+Plugin 'preservim/nerdtree' 
 
 let g:python3_host_prog = '/path/to/python/executable/'
 Plugin 'Chiel92/vim-autoformat'
@@ -171,7 +176,11 @@ let g:javascript_plugin_jsdoc = 1
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
 
+" Vim Orbital
+let g:colors_name = "fcpg/vim-orbital"
 
+" Use homebrew's clangd
+let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 
 " All of your Plugins must be added 
 " before the following line vundle#end()
@@ -215,3 +224,5 @@ hi tsxTypes guifg=#666666
 " see :h vundle for more details or wiki for FAQ
 
 " Put your non-Plugin stuff after this line
+
+colorscheme orbital
