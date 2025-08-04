@@ -4,8 +4,12 @@ set autoindent
 set background=dark
 let g:quantum_italics=1
 
+
+
 " first clear any existing autocommands:
 autocmd!
+
+
 
 " have fifty lines of command-line (etc) history: set history=50
 
@@ -111,6 +115,10 @@ call vundle#begin()
 
 Plugin 'fcpg/vim-orbital'
 
+" Rainbow indent plugin
+Plugin 'thiagoalessio/rainbow_levels.vim'
+
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -133,7 +141,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 Plugin 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+  \ 'for': ['java', 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_path = "~/path/to/cli/prettier"
@@ -164,6 +172,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+Plugin 'jparise/vim-graphql'
 
 Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'pangloss/vim-javascript'
@@ -174,6 +183,7 @@ Plugin 'maxmellon/vim-jsx-pretty'
 
 let g:javascript_plugin_jsdoc = 1
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
+
 
 
 " Vim Orbital
@@ -189,6 +199,7 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 map <C-n> :NERDTreeToggle<CR>
+
 
 " Prettier
 " `f` for "format"
@@ -226,3 +237,18 @@ hi tsxTypes guifg=#666666
 " Put your non-Plugin stuff after this line
 
 colorscheme orbital
+
+" Rainbow Indent plugins
+nnoremap <C-R> :RainbowLevelsOn<CR>
+nnoremap <C-O> :RainbowLevelsOff<CR>
+
+" reversed + dimmed blue “rainbow” for dark theme
+highlight! RainbowLevel0 ctermbg=232 guibg=#010e1a
+highlight! RainbowLevel1 ctermbg=233 guibg=#012c36
+highlight! RainbowLevel2 ctermbg=234 guibg=#014553
+highlight! RainbowLevel3 ctermbg=235 guibg=#015f70
+highlight! RainbowLevel4 ctermbg=236 guibg=#01788d
+highlight! RainbowLevel5 ctermbg=237 guibg=#0192aa
+highlight! RainbowLevel6 ctermbg=238 guibg=#02adc6
+highlight! RainbowLevel7 ctermbg=239 guibg=#1bb4e0
+highlight! RainbowLevel8 ctermbg=240 guibg=#2dc3f1
